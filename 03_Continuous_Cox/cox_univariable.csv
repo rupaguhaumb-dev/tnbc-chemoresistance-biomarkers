@@ -1,0 +1,3 @@
+"model","term","scale","HR","LCL95","UCL95","p","n","nev"
+"univariable","MAP3K8 (per 1 SD)","per 1 SD",1.27,0.952,1.69,0.104,178,64
+"univariable","IL1B (per 1 SD)","per 1 SD",1.22,0.982,1.51,0.0732,178,64

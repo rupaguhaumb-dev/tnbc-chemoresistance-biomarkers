@@ -1,0 +1,4 @@
+"contrast","HR","LCL95","UCL95","p"
+"MAP3K8_low / IL1B_high",1.47,0.675,3.2,0.332
+"MAP3K8_high / IL1B_low",1.9,0.89,4.08,0.0971
+"MAP3K8_high / IL1B_high",2.55,1.22,5.31,0.0125

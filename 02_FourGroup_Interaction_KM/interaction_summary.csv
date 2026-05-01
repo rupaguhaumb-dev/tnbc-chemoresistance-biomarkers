@@ -1,0 +1,9 @@
+"metric","value"
+"n_total",178
+"n_MAP3K8low_IL1Blow",46
+"n_MAP3K8low_IL1Bhigh",43
+"n_MAP3K8high_IL1Blow",43
+"n_MAP3K8high_IL1Bhigh",46
+"events_total",64
+"logrank_overall_p",0.0658
+"interaction_LRT_p",0.855

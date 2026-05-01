@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# R / RStudio
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+*.Rcheck/
+
+# Large regenerable caches and outputs
+# - GSE41998_eset.rds is a GEOquery cache that is regenerated on first run
+# - KMplot_4groups.tiff is a 71 MB high-res publication TIFF; PDF/PNG copies
+#   are kept in the repo
+04_GSE41998_Validation/GSE41998_eset.rds
+02_FourGroup_Interaction_KM/KMplot_4groups.tiff
+
+# IDE
+.vscode/
+.idea/
+
+# User personal notes (excluded by default)
+Bottom line for your scientific question.docx

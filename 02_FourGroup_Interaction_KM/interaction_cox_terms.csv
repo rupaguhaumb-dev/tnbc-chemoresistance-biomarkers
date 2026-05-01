@@ -1,0 +1,4 @@
+"term","HR","LCL95","UCL95","p"
+"MAP3K8_grpMAP3K8_high",1.9,0.89,4.08,0.0971
+"IL1B_grpIL1B_high",1.47,0.675,3.2,0.332
+"MAP3K8_grpMAP3K8_high:IL1B_grpIL1B_high",0.91,0.332,2.5,0.855

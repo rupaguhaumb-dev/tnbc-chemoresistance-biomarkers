@@ -1,0 +1,13 @@
+"model","term","HR","LCL95","UCL95","p"
+"multivariable (adj age + stage + RCB)","MAP3K8_z",1.33,0.956,1.85,0.0906
+"multivariable (adj age + stage + RCB)","IL1B_z",1.24,0.951,1.61,0.113
+"multivariable (adj age + stage + RCB)","age",0.988,0.963,1.01,0.324
+"multivariable (adj age + stage + RCB)","stageIIA",0.188,0.0319,1.1,0.064
+"multivariable (adj age + stage + RCB)","stageIIB",0.174,0.0328,0.92,0.0396
+"multivariable (adj age + stage + RCB)","stageIIIA",0.208,0.0395,1.1,0.0645
+"multivariable (adj age + stage + RCB)","stageIIIB",0.254,0.0474,1.36,0.109
+"multivariable (adj age + stage + RCB)","stageIIIC",0.201,0.033,1.22,0.0814
+"multivariable (adj age + stage + RCB)","stageInflammatory",0.633,0.0726,5.52,0.679
+"multivariable (adj age + stage + RCB)","rcbRCB-0/I",0.0978,0.0311,0.307,6.8e-05
+"multivariable (adj age + stage + RCB)","rcbRCB-II",0.526,0.24,1.15,0.109
+"multivariable (adj age + stage + RCB)","rcbRCB-III",2.67,1.3,5.49,0.00729

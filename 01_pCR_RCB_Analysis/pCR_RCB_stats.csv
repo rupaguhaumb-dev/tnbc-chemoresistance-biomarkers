@@ -1,0 +1,3 @@
+"gene","n_pCR","n_RD","median_in_pCR","median_in_RD","Wilcoxon_p","KruskalWallis_p","logreg_OR_perUnit","logreg_OR_LCL","logreg_OR_UCL","logreg_p"
+"MAP3K8",57,113,6.887751974,6.859294403,0.729,0.489,1.01,0.735,1.41,0.96
+"IL1B",57,113,9.380346202,9.559739152,0.267,0.924,0.89,0.617,1.26,0.519
