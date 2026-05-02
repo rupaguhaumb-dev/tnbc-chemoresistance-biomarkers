@@ -25,9 +25,25 @@ suppressPackageStartupMessages({
   library(officer); library(flextable); library(dplyr)
 })
 
-OUT <- "/Users/rupaguha/Desktop/Personal_backedup02Apr2026/Claude/TNBCParsedKMPlot_MAP3K8_RScrpt generated from R2GenomicsDownloaded and TNBC ParsedData/Analyses/02_FourGroup_Interaction_KM"
-WS  <- "/Users/rupaguha/Desktop/Personal_backedup02Apr2026/Claude/TNBCParsedKMPlot_MAP3K8_RScrpt generated from R2GenomicsDownloaded and TNBC ParsedData/GSE25066_TNBC_MAP3K8_workspace.RData"
-setwd(OUT); load(WS)
+## ---- Portable path setup (see 01_pCR_RCB_Analysis for explanation) ------
+this_dir <- local({
+  a <- commandArgs(trailingOnly = FALSE)
+  f <- grep("^--file=", a, value = TRUE)
+  if (length(f)) return(dirname(normalizePath(sub("^--file=", "", f[1]))))
+  fr <- sys.frames()
+  for (i in rev(seq_along(fr)))
+    if (!is.null(fr[[i]]$ofile))
+      return(dirname(normalizePath(fr[[i]]$ofile)))
+  getwd()
+})
+OUT <- this_dir
+setwd(OUT)
+WS  <- Sys.getenv("TNBC_WORKSPACE",
+        unset = file.path("..", "..", "GSE25066_TNBC_MAP3K8_workspace.RData"))
+if (!file.exists(WS))
+  stop("Workspace not found at: ", WS,
+       "\nSet TNBC_WORKSPACE env var or place the file at the default path.")
+load(WS)
 
 ## ---- 1. Build expression vectors ----------------------------------------
 sym_col   <- "Gene Symbol"

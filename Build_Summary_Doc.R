@@ -11,7 +11,17 @@ suppressPackageStartupMessages({
   library(officer); library(flextable); library(dplyr)
 })
 
-ROOT <- "/Users/rupaguha/Desktop/Personal_backedup02Apr2026/Claude/TNBCParsedKMPlot_MAP3K8_RScrpt generated from R2GenomicsDownloaded and TNBC ParsedData/Analyses"
+## ---- Portable path setup (this script lives at the Analyses/ root) ------
+ROOT <- local({
+  a <- commandArgs(trailingOnly = FALSE)
+  f <- grep("^--file=", a, value = TRUE)
+  if (length(f)) return(dirname(normalizePath(sub("^--file=", "", f[1]))))
+  fr <- sys.frames()
+  for (i in rev(seq_along(fr)))
+    if (!is.null(fr[[i]]$ofile))
+      return(dirname(normalizePath(fr[[i]]$ofile)))
+  getwd()
+})
 setwd(ROOT)
 
 s01 <- read.csv("01_pCR_RCB_Analysis/pCR_RCB_stats.csv")

@@ -30,7 +30,18 @@ suppressPackageStartupMessages({
   library(officer); library(flextable); library(dplyr)
 })
 
-OUT <- "/Users/rupaguha/Desktop/Personal_backedup02Apr2026/Claude/TNBCParsedKMPlot_MAP3K8_RScrpt generated from R2GenomicsDownloaded and TNBC ParsedData/Analyses/04_GSE41998_Validation"
+## ---- Portable path setup (script's own directory) -----------------------
+this_dir <- local({
+  a <- commandArgs(trailingOnly = FALSE)
+  f <- grep("^--file=", a, value = TRUE)
+  if (length(f)) return(dirname(normalizePath(sub("^--file=", "", f[1]))))
+  fr <- sys.frames()
+  for (i in rev(seq_along(fr)))
+    if (!is.null(fr[[i]]$ofile))
+      return(dirname(normalizePath(fr[[i]]$ofile)))
+  getwd()
+})
+OUT <- this_dir
 setwd(OUT)
 
 ## ---- 1. Pull GSE41998 ---------------------------------------------------

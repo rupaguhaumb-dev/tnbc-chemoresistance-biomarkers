@@ -24,18 +24,26 @@ Each analysis is self-contained in its own subfolder: an R script, the output fi
 
 ## Data dependency
 
-Analyses 01–03 read a parent-folder workspace `GSE25066_TNBC_MAP3K8_workspace.RData` containing the parsed `clinical_tnbc` (178 × 82) and `expr_tnbc` (22283 × 178) objects. That workspace is **not** committed to this repo (the file is 218 MB and not redistributable in raw form). Re-running 01–03 requires that workspace; re-running 04 only requires internet access (it pulls live from GEO).
+Analyses 01–03 read a workspace file `GSE25066_TNBC_MAP3K8_workspace.RData` containing the parsed `clinical_tnbc` (178 × 82) and `expr_tnbc` (22283 × 178) objects derived from GEO accession GSE25066. That workspace is **not** committed (218 MB; the underlying GSE25066 raw data is freely available on GEO). Re-running 01–03 requires the workspace; analysis 04 only needs internet access (it pulls live from GEO via `GEOquery`).
+
+By default, scripts look for the workspace at `../../GSE25066_TNBC_MAP3K8_workspace.RData` (i.e., one directory above the repo root). You can override this with an environment variable:
+
+```bash
+export TNBC_WORKSPACE=/absolute/path/to/GSE25066_TNBC_MAP3K8_workspace.RData
+```
 
 ## How to run
 
-```r
-# inside R, with this folder as the working directory
-source("01_pCR_RCB_Analysis/pCR_RCB_Analysis.R")
-source("02_FourGroup_Interaction_KM/FourGroup_Interaction_KM.R")
-source("03_Continuous_Cox/Continuous_Cox.R")
-source("04_GSE41998_Validation/GSE41998_Validation.R")
-source("Build_Summary_Doc.R")
+```bash
+# from a terminal, repo root = the Analyses/ folder:
+Rscript 01_pCR_RCB_Analysis/pCR_RCB_Analysis.R
+Rscript 02_FourGroup_Interaction_KM/FourGroup_Interaction_KM.R
+Rscript 03_Continuous_Cox/Continuous_Cox.R
+Rscript 04_GSE41998_Validation/GSE41998_Validation.R
+Rscript Build_Summary_Doc.R
 ```
+
+Each script auto-detects its own location and writes its outputs to the same subfolder. Analysis 04 caches the GSE41998 ExpressionSet in `04_GSE41998_Validation/GSE41998_eset.rds` after the first run (cache file is gitignored).
 
 ## R packages used
 
