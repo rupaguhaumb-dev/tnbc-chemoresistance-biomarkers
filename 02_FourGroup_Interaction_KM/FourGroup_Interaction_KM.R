@@ -169,29 +169,39 @@ title_block <- paste0(
 annot_txt <- sprintf("Overall log-rank P = %.3g\nInteraction (LRT) P = %.3g",
                      p_overall, p_interaction)
 
+##  Short legend labels so the legend never overflows the plot canvas.
+short_labs <- c("MAP3K8↓  IL1B↓",
+                "MAP3K8↓  IL1B↑",
+                "MAP3K8↑  IL1B↓",
+                "MAP3K8↑  IL1B↑")
+
 p <- ggsurvplot(
   fit, data = df,
   risk.table = TRUE, pval = FALSE, conf.int = FALSE,
   palette = c("#1F77B4", "#2CA02C", "#FF7F0E", "#D7263D"),
+  legend = "bottom",
   legend.title = "Group",
-  legend.labs  = levels(df$Group4),
+  legend.labs  = short_labs,
   xlab = "Time (months)",
   ylab = "DRFS probability",
   title = title_block,
   risk.table.title = "Number at risk",
   risk.table.height = 0.30,
   ggtheme = theme_classic(base_size = 11),
-  font.title = c(11, "bold"))
+  font.title = c(11, "bold"),
+  font.legend = c(10, "plain"))
+##  Force legend to wrap onto two rows for safety on narrow canvases.
 p$plot <- p$plot +
+  guides(colour = guide_legend(nrow = 2, byrow = TRUE)) +
   annotate("text",
            x = max(df$time_months, na.rm = TRUE) * 0.45, y = 0.95,
            label = annot_txt, hjust = 0, size = 3.5)
 
-pdf("KMplot_4groups.pdf", width = 7.2, height = 7.2, useDingbats = FALSE)
+pdf("KMplot_4groups.pdf", width = 8.5, height = 8.0, useDingbats = FALSE)
 print(p); dev.off()
-png("KMplot_4groups.png", width = 7.2, height = 7.2, units = "in", res = 300)
+png("KMplot_4groups.png", width = 8.5, height = 8.0, units = "in", res = 300)
 print(p); dev.off()
-tiff("KMplot_4groups.tiff", width = 7.2, height = 7.2, units = "in", res = 600)
+tiff("KMplot_4groups.tiff", width = 8.5, height = 8.0, units = "in", res = 600)
 print(p); dev.off()
 
 ## ---- 6. Methods Word document -------------------------------------------

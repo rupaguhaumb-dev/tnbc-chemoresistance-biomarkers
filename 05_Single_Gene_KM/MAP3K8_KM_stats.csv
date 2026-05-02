@@ -1,0 +1,10 @@
+"metric","value"
+"n_total",178
+"events",64
+"n_high",89
+"n_low",89
+"cutoff_log2",6.852
+"HR_high_vs_low",1.8
+"LCL95",1.09
+"UCL95",2.98
+"logrank_P",0.0196
