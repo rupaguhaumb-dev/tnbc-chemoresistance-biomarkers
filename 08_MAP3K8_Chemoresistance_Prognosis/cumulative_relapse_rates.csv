@@ -1,0 +1,7 @@
+"group","time_months","S_t","CI_lower","CI_upper","relapse_pct"
+"MAP3K8_grp=MAP3K8-low",24,0.786,0.703,0.879,21.4
+"MAP3K8_grp=MAP3K8-low",60,0.652,0.549,0.776,34.8
+"MAP3K8_grp=MAP3K8-low",84,0.652,0.549,0.776,34.8
+"MAP3K8_grp=MAP3K8-high",24,0.653,0.559,0.762,34.7
+"MAP3K8_grp=MAP3K8-high",60,0.495,0.373,0.657,50.5
+"MAP3K8_grp=MAP3K8-high",84,0.247,0.06,1,75.3
