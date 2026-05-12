@@ -1,0 +1,5 @@
+"endpoint","group1","n1","median1","group2","n2","median2","Wilcoxon_p"
+"pCR","RD",113,6.859,"PCR",57,6.888,0.729
+"Hatzis","RX INSENSITIVE",135,6.937,"RX SENSITIVE",43,6.59,0.126
+"DLDA30","RD",29,6.536,"PCR",149,6.942,0.0379
+"RCB0I","RCB-II/III",89,6.942,"RCB-0/I",89,6.814,0.302
